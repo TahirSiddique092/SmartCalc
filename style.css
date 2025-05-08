@@ -1,0 +1,339 @@
+.window {
+    background-color: black;
+}
+
+.navbar {
+    background-color: #3c3c3c;
+    min-height: 100px;
+}
+
+.navbar-label {
+    font-size: 35px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    padding-left: 20px;
+}
+
+.search-container {
+    padding-left: 900px;
+}
+
+.search-button {
+    background: transparent;
+}
+
+.search-box {
+    background: transparent;
+    color: white;
+    border-color: white;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.search-box:focus, .search-box:focus-within {
+    border-color: #b8860a;   
+}
+
+.card {
+    background-color: #3c3c3c;
+    border-radius: 8px; 
+    padding: 4px;
+    color: white;
+    font-size: 25px;
+    border: none;
+    box-shadow: none;
+    outline: none;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.card label {
+    padding: 7px 5px;
+    font-size: 15px; 
+}
+
+.total-amount {
+    color: #f1c40f; 
+    font-weight: bold;
+    font-size: 14px; 
+}
+
+.fab {
+    background-image: none;
+    background-color: #f1c40f;
+    color: white;
+    border-radius: 50%;
+    font-size: 30px;
+    line-height: 45px; 
+    opacity: 1;
+}
+
+.fab:hover {
+    background-color: #c6a10c;
+}
+.delete-button {
+    min-width: 20px;
+    min-height: 20px;
+    padding: 0;
+    font-size: 12px;
+    background-image: none;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    border: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.delete-button:hover {
+    opacity: 1;
+    background-color: #c0392b;
+}
+
+.small_card {
+    background-color: #3c3c3c;
+    border-radius: 8px; 
+    padding: 5px;
+    color: white;
+    font-size: 12px;
+    border: none;
+    box-shadow: none;
+    outline: none;
+}
+
+.title_box{
+    background-color: #3c3c3c;
+    border-bottom-left-radius: 8px; 
+    border-bottom-right-radius: 8px; 
+    padding: 5px;
+    color: white;
+    font-size: 12px;
+    border: none;
+    box-shadow: none;
+    outline: none;
+}
+
+.title_label{
+    font-size: 20px;
+}
+
+window {
+    background-color: black; 
+}
+
+#playground-scroll { 
+    border: none;
+    box-shadow: none;
+    background-color: transparent; 
+    margin: 20px; 
+}
+
+#playground-scroll viewport {
+    background-color: #2c2c2c; 
+    border-radius: 15px; 
+    border: none; 
+}
+
+#playground-scroll flowbox {
+    padding: 20px; 
+}
+
+.record-item {
+    background-color: #3c3c3c;
+    border-radius: 10px;
+    padding: 8px 12px;
+    margin-bottom: 12px;
+    min-height: 20px;
+    outline: none;
+    box-shadow: none;
+}
+
+.record-item:focus, 
+.record-item:focus-visible,
+.record-item:active,
+.record-item:selected {
+    background-color: #3c3c3c;
+    outline: none;
+    box-shadow: none;
+    border: none;
+    border-color: transparent;
+}
+
+.record-item * {
+    box-shadow: none;
+}
+
+
+.record-title-entry{
+    background-color: #4a4a4a; 
+    border-radius: 10px;       
+    padding: 8px 12px;     
+    color: white;    
+    margin-bottom: 12px; 
+    font-size: 13px; 
+    background-image: none;
+}
+
+.record-value-entry{
+    background-color: #4a4a4a; 
+    border-radius: 10px;   
+    color: white;    
+    padding: 8px 12px;         
+    margin-bottom: 12px;
+    font-size: 13px;  
+    background-image: none;
+}
+
+.record-title-entry:active{
+    border-color: #b8860a; 
+}
+
+.record-value-entry:active {
+    border-color: #b8860a; 
+}
+
+togglebutton {
+    min-width: 28px;
+    min-height: 28px;
+    padding: 0;
+    border-radius: 14px; 
+    color: transparent;
+    font-size: 1px; 
+    border: none;
+    text-shadow: none;
+    box-shadow: none;
+    background-image: none; 
+}
+
+.toggle-button-green {
+    background-image: none;
+    background-color: #2ecc71;
+    border-radius: 10px;       
+    padding: 8px 12px;         
+    margin-bottom: 12px; 
+}
+.toggle-button-greene:hover {
+    background-color: #1a8446; 
+}
+
+.toggle-button-yellow {
+    background-image: none;
+    background-color: #f1c40f;
+    border-radius: 10px;       
+    padding: 8px 12px;        
+    margin-bottom: 12px;  
+}
+.toggle-button-yellow:hover {
+    background-color: #f39c12; 
+}
+
+.fab-button {
+    min-width: 56px;
+    min-height: 56px;
+    border-radius: 28px; 
+    padding: 0;
+
+    color: white;
+    font-size: 22pt; 
+    font-weight: bold;
+
+    border: none;
+    text-shadow: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); 
+    margin: 5px; 
+}
+
+.fab-button:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5); 
+}
+
+.add-button { 
+    background-image: none;
+    color: white;
+    border-radius: 50%;
+    font-size: 30px;
+    line-height: 45px; 
+    opacity: 1;
+    background-color: #f1c40f; 
+}
+.add-button:hover {
+    background-color: #f39c12; 
+}
+
+.save-button{ 
+    background-image: none;
+    color: white;
+    border-radius: 50%;
+    font-size: 25px;
+    line-height: 45px; 
+    opacity: 1;
+    background-color: #2ecc71; 
+}
+.save-button:hover {
+     background-color: #27ae60; 
+}
+
+#delete-fab, 
+.fab-button:nth-child(3) { 
+    background-color: #e74c3c; 
+}
+#delete-fab:hover,
+.fab-button:nth-child(3):hover {
+    background-color: #c0392b; 
+}
+
+scrollbar {
+    background-color: #2c2c2c; 
+    border: none;
+    min-width: 8px;
+    min-height: 8px;
+}
+
+scrollbar slider {
+    background-color: #5a5a5a; 
+    border-radius: 4px;
+    border: none;
+}
+
+scrollbar slider:hover {
+    background-color: #7a7a7a;
+}
+
+scrollbar button {
+    min-width: 0;
+    min-height: 0;
+    padding: 0;
+    background-color: transparent; 
+    border: none;
+}
+
+.back-button {
+    min-height: 36px;
+    min-width: 36px;
+    padding: 0;
+    border-radius: 18px; 
+    background-color: rgba(74, 74, 74, 0.8); 
+    border: none;
+    box-shadow: none;
+    background-image: none;
+}
+
+.back-button:hover {
+    background-color: rgba(90, 90, 90, 0.9); 
+}
+
+.back-button image {
+    color: white; 
+}
+
+.new-delete-button {
+    background-color: red;
+    color: white;
+    border-radius: 10px;
+    padding: 2px;
+    min-width: 20px;
+    min-height: 20px;
+}
