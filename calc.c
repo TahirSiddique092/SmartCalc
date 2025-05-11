@@ -370,6 +370,7 @@ void ask_title(GtkWidget *fab_button, gpointer user_data) {
 
     GtkWidget *label = gtk_label_new("Enter title:");
     gtk_box_append(GTK_BOX(main_box), label);
+    gtk_widget_add_css_class(label, "popup-label");
 
     GtkWidget *entry = gtk_entry_new();
     gtk_entry_set_placeholder_text(GTK_ENTRY(entry), "Title");
@@ -828,6 +829,7 @@ void show_custom_info_dialog(GtkWindow *parent, const char *message) {
 
     GtkWidget *label = gtk_label_new(message);
     gtk_box_append(GTK_BOX(box), label);
+    gtk_widget_add_css_class(label, "popup-label");
 
     GtkWidget *button = gtk_button_new_with_label("OK");
     gtk_box_append(GTK_BOX(box), button);
