@@ -167,7 +167,6 @@ void delete_entry(int index) {
     }
 
     entry_count--;  
-    printf("Entry at index %d deleted successfully.\n", index);
 }
 
 void calculate(int index) {
