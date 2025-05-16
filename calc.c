@@ -157,7 +157,17 @@ void delete_record(int index){
 }
 
 void delete_entry(int index) {
-    printf("Will delete %d entry in future!\n",index);
+    if (index < 0 || index >= entry_count) {
+        printf("Invalid index\n");
+        return;
+    }
+
+    for (int i = index; i < entry_count - 1; i++) {
+        entries[i] = entries[i + 1];  
+    }
+
+    entry_count--;  
+    printf("Entry at index %d deleted successfully.\n", index);
 }
 
 void calculate(int index) {
