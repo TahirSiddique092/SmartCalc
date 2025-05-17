@@ -169,7 +169,6 @@ void delete_entry(int index) {
 }
 
 void calculate(int index) {
-    printf("Will Calculate %d record in the future\n", index);
 
     income = 0; expense =0; 
 
@@ -559,7 +558,7 @@ GtkWidget* create_playgroud(GtkWidget *main_container, GtkWidget *original_scrol
 
     GtkWidget *small_box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 2);
     gtk_widget_add_css_class(small_box, "small_card");
-    gtk_widget_set_size_request(small_box, 150, 200);
+    gtk_widget_set_size_request(small_box, 180, 150);
     gtk_widget_set_vexpand(small_box, FALSE);    
     gtk_widget_set_hexpand(small_box, FALSE);
 
@@ -678,7 +677,7 @@ void update_smallbox(GtkWidget *smallbox) {
 
     char content[256];
     snprintf(content, sizeof(content),
-        "\n🟢<b>  Income = %.0f</b>\n\n🟡<b>  Expense =  %.0f\n\n    <span foreground='#b8860a'>Total = %.0f</span></b>",
+        "\n🟢  Income = %.0f\n\n🟡  Expense =  %.0f\n\n    <b><span foreground='#b8860a'>Total = %.0f</span></b>",
         income, expense, total);
 
     GtkWidget *small_label = gtk_label_new(NULL);
