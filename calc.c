@@ -76,7 +76,6 @@ int load_data() {
 
     char line[512];
     record_count = 0;
-    fgets(line, sizeof(line), file); 
 
     while (fgets(line, sizeof(line), file) && record_count < MAX_ENTRIES) {
         Record *re = &records[record_count];
@@ -173,8 +172,58 @@ void calculate(int index) {
     printf("Will Calculate %d record in the future\n", index);
 }
 
-void write_csv(){
-    printf("Will re-write the entire csv in future\n");
+void write_csv() {
+
+    FILE *fp = fopen("data.csv", "w");
+    if (!fp) {
+        perror("Failed to open file");
+        return;
+    }               
+
+    for (int j = 0; j < record_count; j++) {
+        char line[1024] = ""; 
+        Record *re = &records[j];
+        char strTotal[50], strIncome[50], strExpense[50];
+
+        strcat(line, re->title);
+        strcat(line, ",");
+        strcat(line, re->date);
+        strcat(line, ",");
+
+        sprintf(strTotal, "%.2f", re->total);
+        strcat(line, strTotal);
+        strcat(line, ",");
+
+        sprintf(strIncome, "%.2f", re->income);
+        strcat(line, strIncome);
+        strcat(line, ",");
+
+        sprintf(strExpense, "%.2f", re->expense);
+        strcat(line, strExpense);
+        strcat(line, ",");
+
+        for (int i = 0; i < re->entryCount; i++) { 
+            Entry *en = &re->entries[i];
+            char strValue[50], strType[2]; 
+
+            sprintf(strValue, "%.2f", en->value);
+            strType[0] = en->type;
+            strType[1] = '\0';
+
+            strcat(line, "[");
+            strcat(line, en->name);
+            strcat(line, ":");
+            strcat(line, strValue);
+            strcat(line, ":");
+            strcat(line, strType);
+            strcat(line, "],");
+        }
+
+        strcat(line, "\n"); 
+        fprintf(fp, "%s", line);
+    }
+
+    fclose(fp);
 }
 
 int main(int argc, char **argv) {
