@@ -45,7 +45,7 @@ void ask_title(GtkWidget *fab_button, gpointer user_data);
 void on_delete_clicked(GtkButton *button, gpointer user_data);
 void on_card_clicked(GtkButton *card_button, gpointer user_data);
 GtkWidget* create_record_widget(char name[], double value, char type, int index, GtkWidget *flowbox);
-GtkWidget* create_playgroud(GtkWidget *main_container, GtkWidget *original_scroll_widget, GtkWidget *fab_button, GtkWidget *search_container, int id);
+GtkWidget* create_playgroud(GtkWidget *main_container, GtkWidget *original_scroll_widget, GtkWidget *fab_button, GtkWidget *search_container, GtkWidget *actual_flowbox, int id);
 void on_toggle_button_toggled(GtkToggleButton *button, gpointer user_data);
 void on_back_button_clicked(GtkButton *button, gpointer user_data);
 void on_save_button_clicked(GtkButton *button, gpointer user_data);
@@ -170,6 +170,23 @@ void delete_entry(int index) {
 
 void calculate(int index) {
     printf("Will Calculate %d record in the future\n", index);
+
+    income = 0; expense =0; 
+
+    for(int i=0; i<entry_count; i++){
+        Entry *en = &entries[i];
+
+        if(en->type == 'I')
+            income += en->value;
+        else
+            expense += en->value;
+    }    
+
+    total = income - expense;
+
+    records[index].total = total;
+    records[index].income = income;
+    records[index].expense = expense;
 }
 
 void write_csv() {
@@ -514,12 +531,12 @@ void on_card_clicked(GtkButton *card_button, gpointer user_data) {
         gtk_widget_set_visible(search_container, FALSE);
     }
 
-    GtkWidget *new_playground_layout = create_playgroud(main_container, actual_scroll_widget, fab_button, search_container, id);
+    GtkWidget *new_playground_layout = create_playgroud(main_container, actual_scroll_widget, fab_button, search_container, flowbox, id);
     gtk_widget_set_vexpand(new_playground_layout, TRUE);
     gtk_box_append(GTK_BOX(main_container), new_playground_layout);
 }
 
-GtkWidget* create_playgroud(GtkWidget *main_container, GtkWidget *original_scroll_widget, GtkWidget *fab_button, GtkWidget *search_container, int id) {
+GtkWidget* create_playgroud(GtkWidget *main_container, GtkWidget *original_scroll_widget, GtkWidget *fab_button, GtkWidget *search_container, GtkWidget *actual_flowbox, int id) {
     GtkWidget *main_box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
 
     GtkWidget *flowbox = gtk_flow_box_new();
@@ -584,6 +601,7 @@ GtkWidget* create_playgroud(GtkWidget *main_container, GtkWidget *original_scrol
     g_object_set_data(G_OBJECT(back_button), "original_scroll_widget", original_scroll_widget);
     g_object_set_data(G_OBJECT(back_button), "fab_button", fab_button);
     g_object_set_data(G_OBJECT(back_button), "search_container", search_container);
+    g_object_set_data(G_OBJECT(back_button), "actual_flowbox", actual_flowbox);
 
     g_signal_connect(back_button, "clicked", G_CALLBACK(on_back_button_clicked), back_button); 
 
@@ -747,6 +765,7 @@ void on_back_button_clicked(GtkButton *button, gpointer user_data) {
     GtkWidget *original_scroll_widget = GTK_WIDGET(g_object_get_data(G_OBJECT(button), "original_scroll_widget"));
     GtkWidget *fab_button = GTK_WIDGET(g_object_get_data(G_OBJECT(button), "fab_button")); 
     GtkWidget *search_container = GTK_WIDGET(g_object_get_data(G_OBJECT(button), "search_container"));
+    GtkWidget *actual_flowbox = GTK_WIDGET(g_object_get_data(G_OBJECT(button), "actual_flowbox"));
 
     if ( !main_container || !overlay || !original_scroll_widget || !fab_button) {
         g_warning("Invalid data received in on_back_button_clicked.\n");
@@ -760,8 +779,8 @@ void on_back_button_clicked(GtkButton *button, gpointer user_data) {
     }
 
     gtk_widget_set_visible(original_scroll_widget, TRUE);
+    update_flowbox_cards(actual_flowbox, records, record_count); 
     
-
     gtk_widget_set_visible(search_container, TRUE);
     gtk_widget_set_visible(fab_button, TRUE);
 
