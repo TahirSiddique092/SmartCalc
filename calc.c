@@ -167,8 +167,6 @@ void delete_record(int index) {
     record_count--;
 }
 
-}
-
 void delete_entry(int index) {
     if (index < 0 || index >= entry_count) {
         printf("Invalid index\n");
@@ -506,6 +504,7 @@ void on_delete_clicked(GtkButton *button, gpointer user_data) {
     int id = GPOINTER_TO_INT(g_object_get_data(G_OBJECT(button), "record_id"));
 
     delete_record(id);
+    write_csv();
     load_data();
 
     update_flowbox_cards(GTK_WIDGET(g_object_get_data(G_OBJECT(button), "flowbox")), records, record_count);
