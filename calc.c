@@ -151,8 +151,22 @@ void add_record(const char *title){
     fclose(file);
 }
 
-void delete_record(int index){
-    printf("Will delete %d record in future!\n",index);
+void delete_record(int index) {
+  
+    if (index < 0 || index >= record_count) {
+        printf("Invalid index. Cannot delete record.\n");
+        return;
+    }
+
+  
+    for (int i = index; i < record_count - 1; i++) {
+        records[i] = records[i + 1];
+    }
+
+   
+    record_count--;
+}
+
 }
 
 void delete_entry(int index) {
