@@ -70,7 +70,7 @@ void write_csv();
 int load_data() {
     FILE *file = fopen("data.csv", "r");
     if (!file) {
-        perror("Error opening file");
+        printf("Error opening file\n");
         return -1;
     }
 
@@ -128,7 +128,7 @@ void search(const char *query){
 void add_record(const char *title){
     FILE *file = fopen("data.csv", "a");
     if (!file) {
-        perror("Failed to open file");
+        printf("Error opening file\n");
         return;
     }
 
@@ -195,7 +195,7 @@ void write_csv() {
 
     FILE *fp = fopen("data.csv", "w");
     if (!fp) {
-        perror("Failed to open file");
+        printf("Error opening file\n");
         return;
     }               
 
