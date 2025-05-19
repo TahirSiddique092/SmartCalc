@@ -137,16 +137,7 @@ void add_record(const char *title){
     struct tm *t = localtime(&now);
     strftime(date, sizeof(date), "%d %b %Y", t); 
 
-    char clean_title[256];
-    int j = 0;
-    for (int i = 0; title[i] != '\0' && j < sizeof(clean_title) - 1; i++) {
-        if (title[i] != ',') {
-            clean_title[j++] = title[i];
-        }
-    }
-    clean_title[j] = '\0';
-
-    fprintf(file, "%s,%s,0,0,0,\n", clean_title, date);
+    fprintf(file, "%s,%s,0,0,0,\n", title, date);
 
     fclose(file);
 }
