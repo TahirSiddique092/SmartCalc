@@ -248,6 +248,7 @@ void write_csv() {
 int main(int argc, char **argv) {
     if (load_data() == 0) {
         printf("Successfully loaded %d records.\n", record_count);
+        printf("Hello\n")
     } else {
         printf("Failed to load Data.\n");
     }
